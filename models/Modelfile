@@ -1,0 +1,16 @@
+FROM mistral-7b-instruct-v0.2.Q4_K_M.gguf
+
+TEMPLATE """
+{{ .System }}
+
+### Instruction:
+{{ .Prompt }}
+
+### Response:
+{{ .Response }}
+"""
+
+PARAMETER temperature 0.7
+PARAMETER top_p 0.9
+PARAMETER repeat_penalty 1.1
+PARAMETER stop "### Instruction:"
